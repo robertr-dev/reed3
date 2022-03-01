@@ -8,6 +8,7 @@ public class KidCollision : MonoBehaviour
     public int health;
     public KidBehavior kb;
     public GameObject PowerUp;
+    public GameObject GrassFeed;
     private float damageInterval;
     void Start() 
     {
@@ -26,6 +27,13 @@ public class KidCollision : MonoBehaviour
              
                 Instantiate(PowerUp, kid.transform.position, Quaternion.identity);
                 Rigidbody PUpRB = PowerUp.GetComponent<Rigidbody>();
+                PUpRB.AddForce(initialVelocity, ForceMode.Impulse);
+            }
+            else if (kb.PUpDeterminant % 21 == 0)
+            {
+
+                Instantiate(GrassFeed, kid.transform.position, Quaternion.identity);
+                Rigidbody PUpRB = GrassFeed.GetComponent<Rigidbody>();
                 PUpRB.AddForce(initialVelocity, ForceMode.Impulse);
             }
             if (!kb.onLawn)

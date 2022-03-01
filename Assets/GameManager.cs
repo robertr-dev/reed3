@@ -4,25 +4,29 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    public int NumOfKids;
+    public int NumOfKids = 0;
     public int Score;
     public int time;
     public int yardHealth;
+    public int yardHealthMax = 300;
     public int powerUp2Time;
     public int powerUp3Time;
+    public int kidLimit;
     bool gameOver = false;
     public float restartDelay = 2f;
     public GameObject gameOverMessage;
     void Start()//Start of Wave 
     {
-        yardHealth = 300;
+        yardHealth = yardHealthMax;
         Score = 0;
+        kidLimit = 10;
     }
     public void damageYard(int damage)
     {
         yardHealth -= damage;
         if (yardHealth <= 0)
         {
+            yardHealth = 0;
             EndGame();
         }
     }
@@ -39,6 +43,12 @@ public class GameManager : MonoBehaviour
             Invoke("RestartLevel", restartDelay);
         }
 
+    }
+    public void HealYard(int heal)
+    {
+        yardHealth += heal;
+        if (yardHealth >= yardHealthMax)
+            yardHealth = yardHealthMax;
     }
     public void RestartLevel()
     {

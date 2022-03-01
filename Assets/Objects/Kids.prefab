@@ -114,6 +114,7 @@ MonoBehaviour:
   health: 0
   kb: {fileID: -2719378166423755964}
   PowerUp: {fileID: 8933748724876201601, guid: 20a067d6572a623469dcbc9a64129cc3, type: 3}
+  GrassFeed: {fileID: 6073968186456353876, guid: 5789180651e6c944599cb09e1408a6b9, type: 3}
 --- !u!54 &8105970639448630115
 Rigidbody:
   m_ObjectHideFlags: 0

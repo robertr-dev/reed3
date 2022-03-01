@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: c2dec55d603e875418e93a9c1d1c4ba7, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: daa0176dfdf7a60479b57130b9ac2746, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: e6638870a66db484aa0de8a51390cb82, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -868,8 +868,10 @@ MonoBehaviour:
   Score: 0
   time: 0
   yardHealth: 0
+  yardHealthMax: 300
   powerUp2Time: 0
   powerUp3Time: 0
+  kidLimit: 0
   restartDelay: 2
   gameOverMessage: {fileID: 0}
 --- !u!4 &861764618

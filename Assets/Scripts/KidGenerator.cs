@@ -8,6 +8,7 @@ public class KidGenerator : MonoBehaviour
     public GameObject kid;
     float timer;
     int nextGen;
+    int kidLimit;
 
 
     // Start is called before the first frame update
@@ -15,7 +16,7 @@ public class KidGenerator : MonoBehaviour
     {
         timer = 0;
         nextGen = Random.Range(10,20);
-        FindObjectOfType<GameManager>().NumOfKids = 0;
+        kidLimit = FindObjectOfType<GameManager>().kidLimit;
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class KidGenerator : MonoBehaviour
     {
         int numofKids = FindObjectOfType<GameManager>().NumOfKids;
         timer += Time.deltaTime;
-        if(timer >= nextGen && numofKids <= 10)
+        if(timer >= nextGen && numofKids < kidLimit)
         {
             Instantiate(kid, generator.position, Quaternion.identity);
             timer = 0;
