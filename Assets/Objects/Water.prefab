@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1480273103442355616}
   - component: {fileID: -6511043090556661191}
   - component: {fileID: 5167783051450054785}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3506264574623261828}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

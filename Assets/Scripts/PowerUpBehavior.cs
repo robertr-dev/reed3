@@ -16,15 +16,16 @@ public class PowerUpBehavior : MonoBehaviour
     }
     void Update()
     {
-        powerUp.transform.Rotate(new Vector3(0,1,0));
+        powerUp.transform.Rotate(new Vector3(0,1,0));//Sets the power up rotating 
     }
     void OnCollisionEnter(Collision collider)
     {
-        if (collider.collider.tag == "Water")
+        
+        if (collider.collider.tag == "Water")//As power up is being hit by water, decriment limit
         {
             limit--;
         }
-        if(limit <= 0)
+        if(limit <= 0)//Once limit has been reached, powerup hose and remove the power up object from the game.
         {
             FindObjectOfType<movement>().PowerUpHose();
             FindObjectOfType<DisplayPowerUp>().UpdatePowerLevel();
