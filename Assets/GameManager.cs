@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public int yardHealthMax = 300;
     public int powerUp2Time;
     public int powerUp3Time;
-    public int kidLimit;
+    public int kidLimit = 10;
     bool gameOver = false;
     public float restartDelay = 2f;
     public GameObject gameOverMessage;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     {
         yardHealth = yardHealthMax;
         Score = 0;
-        kidLimit = 10;
+        kidLimit = 0;
     }
     public void damageYard(int damage)
     {

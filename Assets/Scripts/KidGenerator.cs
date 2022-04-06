@@ -23,9 +23,10 @@ public class KidGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+	
         //The kid generator will generate a new kid object once every 5 to 15 seconds. Once timer reaches nextGen, a new Kid object will be generated.
         int numofKids = FindObjectOfType<GameManager>().NumOfKids;//Increment the number of kids in the game that is kept in Game Manager
-        timer += Time.deltaTime;
+        Debug.Log("Timer:" + timer + "/NG: " + nextGen + "/Kids: " + numofKids + "/KidLimit" + kidLimit);	timer += Time.deltaTime;
         //As long as the number of kids in game has not been reached, and time has been reached for another kid object to be generated,
         //generate a new kid object, reset timer, and update the number of kids kept in Game Manager.
         if (timer >= nextGen && numofKids < kidLimit)

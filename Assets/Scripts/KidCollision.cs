@@ -20,7 +20,7 @@ public class KidCollision : MonoBehaviour
         if (health <= 0)//If kid has been defeated
         {
             Vector3 initialVelocity = kid.GetComponent<Rigidbody>().velocity;
-            
+            Debug.Log(FindObjectOfType<GameManager>().NumOfKids);
             FindObjectOfType<GameManager>().NumOfKids--;//Adjust number of kids currently in game
             //If kid's power up determinant value is a multiple of 24, drop PowerUp
             if (kb.PUpDeterminant % 24 == 0)

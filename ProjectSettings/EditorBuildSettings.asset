@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ProtoType1.unity
+    path: Assets/Lv.1 Lawn Invaders.unity
     guid: bcc95ae19db429d4591202d197cd8eb3
   - enabled: 1
     path: Assets/ProtoType2.unity
