@@ -25,7 +25,7 @@ public class movement : MonoBehaviour
         startPos = player.position;
         lastFireTime = 0;
         powerUp = 1;
-        
+        FindObjectOfType<GameManager>().setUpLevel();
        waterjetPrefab.GetComponent<Transform>().position = firePoint.position;//Ensure water jet is aligned to fire point
         
 

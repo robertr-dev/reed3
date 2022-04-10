@@ -22,6 +22,9 @@ public class KidCollision : MonoBehaviour
             Vector3 initialVelocity = kid.GetComponent<Rigidbody>().velocity;
             Debug.Log(FindObjectOfType<GameManager>().NumOfKids);
             FindObjectOfType<GameManager>().NumOfKids--;//Adjust number of kids currently in game
+            FindObjectOfType<GameManager>().kidsDefeated++;
+            if (FindObjectOfType<GameManager>().kidsDefeated >= 100)
+                FindObjectOfType<GameManager>().EndGame();
             //If kid's power up determinant value is a multiple of 24, drop PowerUp
             if (kb.PUpDeterminant % 24 == 0)
             {

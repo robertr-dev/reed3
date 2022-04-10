@@ -10,13 +10,16 @@ public class KidGenerator : MonoBehaviour
     float timer;//Keeps track of time since last generation.
     int nextGen;//Time that needs to elapse until the next kid generation. This is randomly determined.
     int kidLimit;
-
-
+    int upperBound = 30;//For kid generation
+    int lowerBound =15;
+    
     // Start is called before the first frame update
     void Start()
     {
+        upperBound = 30 / FindObjectOfType<GameManager>().generationRate;
+        lowerBound = upperBound / 2;
         timer = 0;
-        nextGen = Random.Range(10,20);
+        nextGen = Random.Range(lowerBound,upperBound);
         kidLimit = FindObjectOfType<GameManager>().kidLimit;
     }
 
@@ -33,8 +36,12 @@ public class KidGenerator : MonoBehaviour
         {
             Instantiate(kid, generator.position, Quaternion.identity);
             timer = 0;
-            nextGen = Random.Range(5, 15);//Determine a random time for next kid generation, between 5 and 15 seconds.
+            nextGen = Random.Range(lowerBound, upperBound);
             FindObjectOfType<GameManager>().NumOfKids++;
         }
+    }
+    void decrimentRegenerationRate() {
+        if (upperBound >= lowerBound)
+            upperBound--;
     }
 }

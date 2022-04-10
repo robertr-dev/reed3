@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Lv.1 Lawn Invaders.unity
+    path: Assets/Scenes/Lv.1 Lawn Invaders.unity
     guid: bcc95ae19db429d4591202d197cd8eb3
   - enabled: 1
-    path: Assets/ProtoType2.unity
-    guid: 33cb264b9301e06458c493950ca22e96
+    path: Assets/Scenes/Lv.2 Hosefight at the Not O.K. Corral.unity
+    guid: dd80e579f9908fc43bf6f8498af7bab0
+  - enabled: 1
+    path: Assets/Scenes/Lv.3 Invasion of the Yard Snatchers.unity
+    guid: 49e06e20f2f008f41adcdf63148d2d14
+  - enabled: 1
+    path: Assets/Scenes/Lv. 4 Night of the Living Brats.unity
+    guid: 6134eec4d4839934d850f80e9667a4fd
+  - enabled: 1
+    path: Assets/Scenes/Lv.5 Die Another Snow Day.unity
+    guid: 6251779857eb7a34b8ea8f0c6c2a9a82
+  - enabled: 1
+    path: Assets/Scenes/Lv.6 Summer-ocalyspse Now!.unity
+    guid: 02ae80cd9769bbe44b7ff4387b1f7ead
   m_configObjects: {}

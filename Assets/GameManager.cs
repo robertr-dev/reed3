@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     bool gameOver = false;
     public float restartDelay = 2f;
     public GameObject gameOverMessage;
+    public int kidsDefeated = 0;
+    public int kidsToNextLevel;
+    public int generationRate;
+    
     void Start()//Start of Wave 
     {
         yardHealth = yardHealthMax;
@@ -53,10 +57,61 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        if(SceneManager.GetActiveScene().name == "ProtoType1")
-            SceneManager.LoadScene("ProtoType2");
-        if (SceneManager.GetActiveScene().name == "ProtoType2")
-            Application.Quit();
+        if(kidsDefeated < kidsToNextLevel)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        else if(kidsDefeated >= kidsToNextLevel && SceneManager.GetActiveScene().name == "Lv.6 Summer - ocalyspse Now!")
+            SceneManager.LoadScene("Lv.1 Lawn Invaders");//We can change this later. For now if you beat the final level, you just restart the game
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+
+    }
+    public void setUpLevel()
+    {
+        Score = 0;
+        NumOfKids = 0;
+        kidsDefeated = 0;
+        yardHealth = yardHealthMax;
+
+        if (SceneManager.GetActiveScene().name == "Lv.1 Lawn Invaders")
+        {
+            kidLimit = 5;
+            kidsToNextLevel = 25;
+            generationRate = 1;
+        }
+        else if (SceneManager.GetActiveScene().name == "Lv.2 Hosefight at the Not O.K. Corral")
+        {
+            kidLimit = 6;
+            kidsToNextLevel = 35;
+            generationRate = 2;
+        }
+        else if (SceneManager.GetActiveScene().name == "Lv.3 Invasion of the Yard Snatchers")
+        {
+            kidLimit = 8;
+            kidsToNextLevel = 45;
+            generationRate = 3;
+        }
+        else if (SceneManager.GetActiveScene().name == "Lv. 4 Night of the Living Brats")
+        {
+            kidLimit = 10;
+            kidsToNextLevel = 50;
+            generationRate = 3;
+        }
+        else if (SceneManager.GetActiveScene().name == "Lv.5 Die Another Snow Day")
+        {
+            kidLimit = 12;
+            kidsToNextLevel = 75;
+            generationRate = 4;
+            yardHealthMax = 350;
+            yardHealth = yardHealthMax;
+        }
+        else if (SceneManager.GetActiveScene().name == "Lv.6 Summer-ocalyspse Now!")
+        {
+            kidLimit = 12;
+            kidsToNextLevel = 100;
+            generationRate = 5;
+            yardHealthMax = 400;
+            yardHealth = yardHealthMax;
+        }
     }
 }
