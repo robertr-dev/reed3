@@ -33,6 +33,7 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        targetPos.LookAt(cam.GetComponent<Transform>().position);
         //Press "w" to move left, "e" to move right
         if (Input.GetKey("w"))
         {
