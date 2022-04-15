@@ -4,12 +4,21 @@ using UnityEngine;
 public class DisplayScore : MonoBehaviour
 {
 
-    public Text Score;
+    
+	 public Text Score;
+	 
+	
+	
 
+	
     // Update is called once per frame
     void Update()
     {
         Score.color = new Color(0, 0, 1);
-        Score.text = "Score: "+ FindObjectOfType<GameManager>().Score.ToString();
+        Score.text = "Score: "+ FindObjectOfType<GameManager>().currScore.ToString();
+	
+	
     }
+
+	
 }

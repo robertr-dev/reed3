@@ -1,12 +1,12 @@
 
 using UnityEngine;
 
-public class PowerUpBehavior : MonoBehaviour
+public class XtraLifeBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
-   public  GameObject PowerUp;
+   public  GameObject XtraLife;
     int limit;
-    public GameObject powerUpMessage;
+    public GameObject XtraLifeMessage;
     
     // Update is called once per frame
     void Start()
@@ -16,7 +16,7 @@ public class PowerUpBehavior : MonoBehaviour
     }
     void Update()
     {
-        PowerUp.transform.Rotate(new Vector3(0,1,0));//Sets the power up rotating 
+        XtraLife.transform.Rotate(new Vector3(0,1,0));//Sets the power up rotating 
     }
     void OnCollisionEnter(Collision collider)
     {
@@ -27,10 +27,9 @@ public class PowerUpBehavior : MonoBehaviour
         }
         if(limit <= 0)//Once limit has been reached, increase player's lives
         {
-            FindObjectOfType<movement>().PowerUpHose();
-            FindObjectOfType<DisplayPowerUp>().UpdatePowerLevel();
-
-            Destroy(PowerUp);
+            FindObjectOfType<GameManager>().Lives++;
+	FindObjectOfType<DisplayLives>().UpdateLives();
+            Destroy(XtraLife);
         }
     }
 }

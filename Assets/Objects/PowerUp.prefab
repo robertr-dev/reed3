@@ -125,5 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdf181b987b58b4689409b4e4434481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUp: {fileID: 8933748724876201601}
+  PowerUp: {fileID: 8933748724876201601}
   powerUpMessage: {fileID: 7200673765549822486, guid: ffff7fc63f4a5ae4ba7b5b9e69901a3e, type: 3}

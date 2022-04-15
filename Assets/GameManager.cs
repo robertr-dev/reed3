@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
+using System.IO;
+using System;
+
 public class GameManager : MonoBehaviour
 {
     public int NumOfKids = 0;
-    public int Score;
+    public int currScore;
     public int time;
+    public int Lives;
     public int yardHealth;
     public int yardHealthMax = 300;
     public int powerUp2Time;
@@ -18,12 +23,14 @@ public class GameManager : MonoBehaviour
     public int kidsDefeated = 0;
     public int kidsToNextLevel;
     public int generationRate;
-    
+    public int toXtrLife;
     void Start()//Start of Wave 
     {
         yardHealth = yardHealthMax;
-        Score = 0;
+	toXtrLife = 0;
+        currScore = 0;
         kidLimit = 0;
+	Lives = 3;
     }
     public void damageYard(int damage)
     {
@@ -31,12 +38,20 @@ public class GameManager : MonoBehaviour
         if (yardHealth <= 0)
         {
             yardHealth = 0;
-            EndGame();
+	   
+            Invoke("RestartLevel", restartDelay);
         }
     }
     public void increaseScore(int scoreIncrease)
     {
-        Score += scoreIncrease;
+        currScore += scoreIncrease;
+	toXtrLife -= scoreIncrease;
+	if(toXtrLife>=0){
+		toXtrLife += 10000;
+		Lives++;
+	}
+	FindObjectOfType<DisplayKidsStats>().kidsDefeated = kidsDefeated;
+	
     }
     public void EndGame()
     {
@@ -44,7 +59,7 @@ public class GameManager : MonoBehaviour
         {
             gameOver = true;
 
-            Invoke("RestartLevel", restartDelay);
+            
         }
 
     }
@@ -56,6 +71,9 @@ public class GameManager : MonoBehaviour
     }
     public void RestartLevel()
     {
+	Lives--;
+	if (Lives <= 0)
+		EndGame();
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         if(kidsDefeated < kidsToNextLevel)
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -68,7 +86,7 @@ public class GameManager : MonoBehaviour
     }
     public void setUpLevel()
     {
-        Score = 0;
+
         NumOfKids = 0;
         kidsDefeated = 0;
         yardHealth = yardHealthMax;
@@ -114,4 +132,90 @@ public class GameManager : MonoBehaviour
             yardHealth = yardHealthMax;
         }
     }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+/*private const string highscoreURL = "http://rrdev.tech/highS/index.php";
+
+    public List<Score> RetrieveScores()
+    {
+        List<Score> scores = new List<Score>();
+        StartCoroutine(DoRetrieveScores(scores));
+        return scores;
+    }
+
+    public void PostScores(string name, int score)
+    {
+        StartCoroutine(DoPostScores(name, score));
+    }
+
+    IEnumerator DoRetrieveScores(List<Score> scores)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("retrieve_leaderboard", "true");
+
+        using (UnityWebRequest www = UnityWebRequest.Post(highscoreURL, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Successfully retrieved scores!");
+                string contents = www.downloadHandler.text;
+                using (StringReader reader = new StringReader(contents))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        Score entry = new Score();
+                        entry.name = line;
+                        try
+                        {
+                            entry.score = Int32.Parse(reader.ReadLine());
+                        }
+                        catch (Exception e)
+                        {
+                            Debug.Log("Invalid score: " + e);
+                            continue;
+                        }
+
+                        scores.Add(entry);
+                    }
+                }
+            }
+        }
+    }
+
+    IEnumerator DoPostScores(string name, int score)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("post_leaderboard", "true");
+        form.AddField("name", name);
+        form.AddField("score", score);
+
+        using (UnityWebRequest www = UnityWebRequest.Post(highscoreURL, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Successfully posted score!");
+            }
+        }
+    }
+
+
+public struct Score
+{
+    public string name;
+    public int score;
+}
+*/
 }
