@@ -9,9 +9,9 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public int NumOfKids = 0;
-    public int currScore;
+    public int currScore =0;
     public int time;
-    public int Lives;
+    public int Lives = 3;
     public int yardHealth;
     public int yardHealthMax = 300;
     public int powerUp2Time;
@@ -28,9 +28,10 @@ public class GameManager : MonoBehaviour
     {
         yardHealth = yardHealthMax;
 	toXtrLife = 0;
-        currScore = 0;
+        toXtrLife = 10000;
+        
         kidLimit = 0;
-	Lives = 3;
+	
     }
     public void damageYard(int damage)
     {
@@ -46,9 +47,10 @@ public class GameManager : MonoBehaviour
     {
         currScore += scoreIncrease;
 	toXtrLife -= scoreIncrease;
-	if(toXtrLife>=0){
+	if(toXtrLife<=0){
 		toXtrLife += 10000;
 		Lives++;
+            FindObjectOfType<DisplayLives>().UpdateLives();
 	}
 	FindObjectOfType<DisplayKidsStats>().kidsDefeated = kidsDefeated;
 	
@@ -71,16 +73,26 @@ public class GameManager : MonoBehaviour
     }
     public void RestartLevel()
     {
-	Lives--;
-	if (Lives <= 0)
-		EndGame();
+
+        if (Lives <= 0)
+        {
+            EndGame();
+        }
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        if(kidsDefeated < kidsToNextLevel)
+        else if (kidsDefeated < kidsToNextLevel)
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        else if(kidsDefeated >= kidsToNextLevel && SceneManager.GetActiveScene().name == "Lv.6 Summer - ocalyspse Now!")
+            Lives--;
+        }
+        else if (kidsDefeated >= kidsToNextLevel && SceneManager.GetActiveScene().name == "Lv.6 Summer-ocalyspse Now!")
+        {
             SceneManager.LoadScene("Lv.1 Lawn Invaders");//We can change this later. For now if you beat the final level, you just restart the game
+        }
         else
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+           
+        }
 
 
     }
