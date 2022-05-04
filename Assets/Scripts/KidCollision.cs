@@ -14,6 +14,7 @@ public class KidCollision : MonoBehaviour
     {
         health = 5;
         damageInterval = 0;
+        FindObjectOfType<GameManager>().NumOfKids++;
     }
     void Update()
     {
@@ -24,7 +25,7 @@ public class KidCollision : MonoBehaviour
             FindObjectOfType<GameManager>().NumOfKids--;//Adjust number of kids currently in game
             FindObjectOfType<GameManager>().kidsDefeated++;
             if (FindObjectOfType<GameManager>().kidsDefeated >= 100)
-                FindObjectOfType<GameManager>().EndGame();
+                FindObjectOfType<GameManager>().RestartLevel();
             //If kid's power up determinant value is a multiple of 24, drop PowerUp
             if (kb.PUpDeterminant % 24 == 0)
             {

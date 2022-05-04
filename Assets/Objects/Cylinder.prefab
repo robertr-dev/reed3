@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1633000733992203537
+--- !u!1 &119536946392633696
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2956154743383258539}
-  - component: {fileID: 9128349132158041554}
-  - component: {fileID: 7774156366810461820}
-  - component: {fileID: 5620202493634274532}
-  - component: {fileID: 8442783903895988867}
-  m_Layer: 0
-  m_Name: barrier
+  - component: {fileID: 119536946392633697}
+  - component: {fileID: 119536946392633708}
+  - component: {fileID: 119536946392633711}
+  - component: {fileID: 119536946392633710}
+  m_Layer: 3
+  m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2956154743383258539
+--- !u!4 &119536946392633697
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633000733992203537}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.58, y: 6.2164993, z: -2.8120399}
-  m_LocalScale: {x: 1, y: 3.9543, z: 34.98317}
+  m_GameObject: {fileID: 119536946392633696}
+  m_LocalRotation: {x: 0.52702045, y: 0.52651656, z: 0.465562, w: 0.4777885}
+  m_LocalPosition: {x: -0.03, y: -0.05, z: 0.04}
+  m_LocalScale: {x: 0.65894, y: 2.0757, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9128349132158041554
+  m_LocalEulerAnglesHint: {x: 0.765, y: 96.312, z: 89.37}
+--- !u!33 &119536946392633708
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633000733992203537}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7774156366810461820
+  m_GameObject: {fileID: 119536946392633696}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &119536946392633711
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633000733992203537}
-  m_Enabled: 1
+  m_GameObject: {fileID: 119536946392633696}
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -61,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 80d407243a2e2294ab4cb87556b346d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,30 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5620202493634274532
-BoxCollider:
+--- !u!136 &119536946392633710
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633000733992203537}
+  m_GameObject: {fileID: 119536946392633696}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8442783903895988867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633000733992203537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d091efd9c7c0b4403a12be83bee89d77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wall: {fileID: 4593717879678456854, guid: e9134387c74f0413da1247e7644544e3, type: 3}
-  kid: {fileID: 1146060921414364554, guid: 070552ede97c2cc419b3cfa1eb0247ca, type: 3}
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

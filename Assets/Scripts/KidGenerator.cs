@@ -16,7 +16,10 @@ public class KidGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        upperBound = 30 / FindObjectOfType<GameManager>().generationRate;
+        int generationRate = FindObjectOfType<GameManager>().generationRate;
+            if (generationRate == 0)
+                generationRate = 1;
+        upperBound = 30 / generationRate;
         lowerBound = upperBound / 2;
         timer = 0;
         nextGen = Random.Range(lowerBound,upperBound);

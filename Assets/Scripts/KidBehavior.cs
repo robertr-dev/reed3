@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//PROTOTYPE KID BEHAVIOR
 public class KidBehavior : MonoBehaviour
 {
     public GameObject Lawn;
@@ -15,7 +15,7 @@ public class KidBehavior : MonoBehaviour
     {
         destination = new Vector3(tr.position.x, 6, -45);
         PUpDeterminant = Random.Range(1,25);//Set randomly determined drop item
-	Debug.Log(destination);
+	    Debug.Log(destination);
     }
     // Update is called once per frame
     void Update()
@@ -43,11 +43,12 @@ public class KidBehavior : MonoBehaviour
                 rb.velocity = Vector3.zero;
 
             // rb.constraints = RigidbodyConstraints.FreezePositionZ;
-            if (tr.position.z <= -50)
+            if (tr.position.z <= -60)
                 rb.velocity = Vector3.zero;
 
             // rb.constraints = RigidbodyConstraints.FreezePositionZ;
-	}
+
+
             //If kid hasn't reached their destination, continue toward destination.
             //or else randomly determine a new destination
             if (tr.position != destination)
@@ -57,16 +58,18 @@ public class KidBehavior : MonoBehaviour
             }
             else
             {
-                rb.velocity = -rb.velocity; 
+                rb.velocity = -rb.velocity;
                 destination = getRandomCooridinate();
-            } 
-           // rb.constraints = RigidbodyConstraints.None;
-        
+            }
+            // rb.constraints = RigidbodyConstraints.None;
+        }
+
+
     }
     public Vector3 getRandomCooridinate()
     {
        //Return a random destination on the Lawn
-        return new Vector3(Random.Range(-45,45), Lawn.transform.position.y, Random.Range(-45,0) );
+        return new Vector3(Random.Range(-45,45), tr.transform.position.y, Random.Range(-50,0) );
 
     }
 }

@@ -7,7 +7,7 @@ public class DisplayKidsStats : MonoBehaviour
 {
 public Text kidsStat;
 public int kidsDefeated;
-int kidsToNextLevel;
+public int kidsToNextLevel;
     void Start(){
 	kidsToNextLevel  = FindObjectOfType<GameManager>().kidsToNextLevel;
 	}

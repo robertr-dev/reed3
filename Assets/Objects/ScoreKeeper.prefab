@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1633000733992203537
+--- !u!1 &2651391968984692635
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2956154743383258539}
-  - component: {fileID: 9128349132158041554}
-  - component: {fileID: 7774156366810461820}
-  - component: {fileID: 5620202493634274532}
-  - component: {fileID: 8442783903895988867}
+  - component: {fileID: 5660563233411638804}
+  - component: {fileID: 7856189046644925252}
+  - component: {fileID: 6468848875281803629}
+  - component: {fileID: 1104646262337118337}
+  - component: {fileID: 4110442305900711841}
+  - component: {fileID: 6096760074225395560}
   m_Layer: 0
-  m_Name: barrier
+  m_Name: ScoreKeeper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &2956154743383258539
+--- !u!4 &5660563233411638804
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633000733992203537}
+  m_GameObject: {fileID: 2651391968984692635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.58, y: 6.2164993, z: -2.8120399}
-  m_LocalScale: {x: 1, y: 3.9543, z: 34.98317}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9128349132158041554
+--- !u!33 &7856189046644925252
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633000733992203537}
+  m_GameObject: {fileID: 2651391968984692635}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7774156366810461820
+--- !u!23 &6468848875281803629
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633000733992203537}
+  m_GameObject: {fileID: 2651391968984692635}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,30 +84,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5620202493634274532
+--- !u!65 &1104646262337118337
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633000733992203537}
+  m_GameObject: {fileID: 2651391968984692635}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8442783903895988867
+--- !u!114 &4110442305900711841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633000733992203537}
+  m_GameObject: {fileID: 2651391968984692635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d091efd9c7c0b4403a12be83bee89d77, type: 3}
+  m_Script: {fileID: 11500000, guid: 3700c74e56ead43bd9199a9615eacccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wall: {fileID: 4593717879678456854, guid: e9134387c74f0413da1247e7644544e3, type: 3}
-  kid: {fileID: 1146060921414364554, guid: 070552ede97c2cc419b3cfa1eb0247ca, type: 3}
+  Score: 0
+  Lives: 3
+  kidsToNextLevel: 0
+--- !u!114 &6096760074225395560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651391968984692635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa49095794f2f4f5f8d9b2aa483eb02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

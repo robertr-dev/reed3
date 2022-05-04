@@ -14,7 +14,7 @@ public class movement : MonoBehaviour
     private Vector3 initialVelocity;//Initial velocity of waterball
     private int fireRate = 30; //Rate waterball is fired
     private float lastFireTime;//Time elapsed since the last waterball was fired
-    private float firePower = .2f; //Force of waterball
+    private float firePower = .3f; //Force of waterball
     [SerializeField] private Camera cam;
     public int powerUp = 1;//Hose's power level
     public ParticleSystem waterjetPrefab;//Water jet the player sees when hose is fired
@@ -25,7 +25,7 @@ public class movement : MonoBehaviour
         startPos = player.position;
         lastFireTime = 0;
         powerUp = 1;
-        FindObjectOfType<GameManager>().setUpLevel();
+        //FindObjectOfType<GameManager>().setUpLevel();
        waterjetPrefab.GetComponent<Transform>().position = firePoint.position;//Ensure water jet is aligned to fire point
         
 
@@ -102,13 +102,21 @@ public class movement : MonoBehaviour
     }
     public void fire()
     {
+        //Debug.Log("Look at"+ firePoint.forward*-500 + " firepoint position:" + firePoint.position + "firepoint + position" + (firePoint.forward * -500+ firePoint.position));
         //When it is time to fire a waterball, generate a new waterball object and determine the velocity of the waterball
-       GameObject waterball = Instantiate(
-            waterballPrefab, 
+        //initialVelocity = ( player.forward*50) * firePower * powerUp;//Adjust velocity vector depending on the target's position
+        //GameObject waterball = Instantiate(
+        //    waterballPrefab,
+        //    firePoint.position,
+        //    Quaternion.identity);
+
+        initialVelocity = (targetPos.position - player.position) * firePower * powerUp;//Adjust velocity vector depending on the target's position
+        GameObject waterball = Instantiate(
+            waterballPrefab,
             firePoint.position,
             Quaternion.identity);
-        initialVelocity = (targetPos.position - firePoint.position)*firePower*powerUp;//Adjust velocity vector depending on the target's position
-       Rigidbody waterballRB = waterball.GetComponent<Rigidbody>();
+
+        Rigidbody waterballRB = waterball.GetComponent<Rigidbody>();
        waterballRB.AddForce(initialVelocity, ForceMode.Impulse);
         var main = waterjetPrefab.main;//determine the velocity of the watejet the player will see.
         main.startSpeed = initialVelocity.magnitude;

@@ -43,9 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d0f374aa71b9149a39051a0bf4cfa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
   NumOfKids: 0
-  Score: 0
+  currScore: 0
   time: 0
+  Lives: 3
   yardHealth: 0
   yardHealthMax: 300
   powerUp2Time: 0
@@ -56,3 +58,6 @@ MonoBehaviour:
   kidsDefeated: 0
   kidsToNextLevel: 0
   generationRate: 0
+  toXtrLife: 0
+  playersName: 
+  scoreKeeper: {fileID: 2651391968984692635, guid: 470ae4b18635645898ec744b77a1b9ea, type: 3}
