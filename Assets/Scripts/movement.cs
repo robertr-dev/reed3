@@ -15,7 +15,7 @@ public class movement : MonoBehaviour
     private int fireRate = 30; //Rate waterball is fired
     private float lastFireTime;//Time elapsed since the last waterball was fired
     private float firePower = .2f; //Force of waterball
-    [SerializeField] private Camera cam;
+    public Camera cam;
     public int powerUp = 1;//Hose's power level
     public ParticleSystem waterjetPrefab;//Water jet the player sees when hose is fired
 
